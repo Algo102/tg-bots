@@ -5,6 +5,7 @@ from aiogram.filters import CommandStart
 
 from config import TOKEN
 
+# bot = Bot(token=getenv('TOKEN'))
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
 
