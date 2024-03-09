@@ -1,29 +1,25 @@
 import asyncio
-# import os
 from os import getenv
 from aiogram import Bot, Dispatcher, types
-from aiogram.filters import CommandStart
 
-
+# Две строки ниже, если не в пайчарм, где нужно создавать вирт.окружение
 from dotenv import find_dotenv, load_dotenv
+
 load_dotenv(find_dotenv())
+
+from handlers3_1.user_private import user_private_router
+
+ALLOWED_UPDATES = ['massage, edite_message']
 
 bot = Bot(token=getenv('TOKEN'))
 dp = Dispatcher()
 
-@dp.message(CommandStart())
-async def start_cmd(message: types.Message):
-    await message.answer('Эта была команда старт')
-
-@dp.message()
-async def start_cmd(message: types.Message):
-    text: str | None = message.text
-    await message.answer(message.text)
-    await message.reply(message.text)
+dp.include_router(user_private_router)
 
 
 async def main():
     await bot.delete_webhook(drop_pending_updates=True)
-    await dp.start_polling(bot)
+    await dp.start_polling(bot, allowed_updates=ALLOWED_UPDATES)
+
 
 asyncio.run(main())
