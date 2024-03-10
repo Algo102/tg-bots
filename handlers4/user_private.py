@@ -77,5 +77,5 @@ async def ship2_cmd(message: types.Message):
 
 # @user_private_router.message(F.text)  # вместо text можно написать photo, audio, sticker
 # async def all_cmd(message: types.Message):
-#     await message.answer('Пиши хоть что, только не х.й или п.зда')
+#     await message.answer('Пиши хоть что')
 
