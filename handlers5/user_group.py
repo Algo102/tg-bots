@@ -9,6 +9,7 @@ user_group_router.message.filter(ChatTypeFilter(['group', 'supergroup']))
 
 # restricted_word = {'кабан', 'хомяк', 'выхухоль'}
 
+
 def clean_text(text: str):
     return text.translate(str.maketrans('', '', punctuation))
 # maketrans - шаблон-матрица замены, что меняем, на что меняем, что вырезать

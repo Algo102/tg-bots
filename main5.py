@@ -22,9 +22,10 @@ dp.include_router(user_group_router)  # группа на втором мест�
 
 async def main():
     await bot.delete_webhook(drop_pending_updates=True)
-    await bot.set_my_commands(commands=private, scope=types.BotCommandScopeAllPrivateChats())
+    # Отключил голубую кнопку меню
+    # await bot.set_my_commands(commands=private, scope=types.BotCommandScopeAllPrivateChats())
     # Для удаления или изменения списка команд в меню
-    # await bot.delete_my_commands(scope=types.BotCommandScopeAllPrivateChats)
+    await bot.delete_my_commands(scope=types.BotCommandScopeAllPrivateChats())
     await dp.start_polling(bot, allowed_updates=ALLOWED_UPDATES)
 
 
