@@ -1,4 +1,4 @@
-# скрипт, который переводит тхт в множество и сохраняет в файл rus_mat.py
+# скрипт, который переводит тхт в множество и сохраняет в файл restricted_words.py
 # Дублирует слова с подменными английскими буквами
 # (запускается отдельно от всего бота, на входе список стоп-слов rus_mat.txt)
 import os
@@ -83,7 +83,7 @@ def save_set_to_file(mat_set, output_filename):
 
 
 filename = os.path.join(os.path.dirname(__file__), 'rus_mat.txt')
-output_filename = os.path.join(os.path.dirname(__file__), 'rus_mat.py')
+output_filename = os.path.join(os.path.dirname(__file__), 'restricted_words.py')
 
 lines_set = read_file_to_set(filename)
 
